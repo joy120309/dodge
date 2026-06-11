@@ -6,7 +6,14 @@ public class PlayerController : MonoBehaviour
 
     private float speed = 8f;
 
-
+    void Start()
+    {
+        if (FindAnyObjectByType<GameManager>() == null)
+        {
+            GameObject go = new GameObject("GameManager");
+            go.AddComponent<GameManager>();
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -23,7 +30,12 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+        GameManager gameManager = FindAnyObjectByType<GameManager>();
+        if (gameManager != null)
+        {
+            gameManager.EndGame();
+        }
+
         gameObject.SetActive(false);
     }
-
 }
