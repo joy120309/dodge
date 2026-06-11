@@ -4,7 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody rigidbody;
 
-    private float speed = 8f;
+    private float speed = 14f;
 
     void Start()
     {
